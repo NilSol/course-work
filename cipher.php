@@ -53,6 +53,7 @@ require 'Rijndael.php';
 <?php
 $key = $_POST['key'];
 $text = $_POST['text'];
+
 if($_POST['encrypt'] == true)
 {
     encrypted($text, $key);
@@ -65,6 +66,7 @@ function decrypt($encrypted, $key)
 {
     $blockSize = 256;
     $aes = new Rijndael($encrypted, $key, $blockSize);
+    $this -> setMethode($blockSize, $mode = 'CBC');
     $enc = $aes->decrypt();
     $aes->setData($enc);
     $dec=$aes->encrypt();
