@@ -59,7 +59,7 @@ if($_POST['encrypt'] == true)
     encrypted($text, $key);
 }
 if($_POST['decrypt'] == true) {
- decrypt($key, $text);
+ decrypt($text, $key);
 }
 // функция для расшифровки
 function decrypt($encrypted, $key)
@@ -69,9 +69,9 @@ function decrypt($encrypted, $key)
     $enc = $aes->decrypt();
     $aes->setData($enc);
     $aes->setMethode($blockSize, $mode = 'CBC');
-    $dec=$aes->encrypt();
+   $dec=$aes->encrypt();
     echo "After encryption: ".$enc."<br/>";
-    echo "After decryption: ".$dec."<br/>";
+   echo "After decryption: ".$dec."<br/>";
     // return $arr_enc= array($encrypted, $key);
 }
 // функция для зашифроки
