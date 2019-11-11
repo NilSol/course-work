@@ -66,9 +66,9 @@ function decrypt($encrypted, $key)
 {
     $blockSize = 256;
     $aes = new Rijndael($encrypted, $key, $blockSize);
-    $this -> setMethode($blockSize, $mode = 'CBC');
     $enc = $aes->decrypt();
     $aes->setData($enc);
+    $aes->setMethode($blockSize, $mode = 'CBC');
     $dec=$aes->encrypt();
     echo "After encryption: ".$enc."<br/>";
     echo "After decryption: ".$dec."<br/>";
