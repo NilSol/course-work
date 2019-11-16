@@ -33,19 +33,24 @@ require 'Rijndael.php';
     </div>
     <div class="custom-control custom-radio">
         <input type="radio" class="custom-control-input" id="defaultUncheckedDisabled2" name="encrypt">
-        <label class="custom-control-label" for="defaultUncheckedDisabled2">encrypt</label>
+        <label class="custom-control-label" for="defaultUncheckedDisabled2"> <font color="#ffd700">encrypt </font></label>
     </div>
 
     <div class="custom-control custom-radio">
         <input type="radio" class="custom-control-input" id="defaultCheckedDisabled2" name="decrypt">
-        <label class="custom-control-label" for="defaultCheckedDisabled2">decrypt</label>
+        <label class="custom-control-label" for="defaultCheckedDisabled2">  <font color="#ffd700">decrypt </font></label>
     <div class="container">
         <div class="select-arrow"></div>
         <button type="submit" class="btn btn-outline-primary">Exactly</button>
     </div>
     </div>
 </form>
-
+<form method="LINK" action="cipher.php">
+    <div class="container">
+    <div class="select-arrow"></div>
+    <input type="submit"  class="btn btn-outline-primary" value="Refresh">
+    </div>
+</form>
 <div class="container">
     <div class="select-arrow"></div>
     <button type="submit" onclick='location.href="form.php"' class="btn btn-outline-primary">Exit</button>
@@ -70,9 +75,8 @@ function decrypt($encrypted, $key)
     $aes->setData($enc);
     $aes->setMethode($blockSize, $mode = 'CBC');
    $dec=$aes->encrypt();
-    echo "After encryption: ".$enc."<br/>";
-   echo "After decryption: ".$dec."<br/>";
-    // return $arr_enc= array($encrypted, $key);
+    echo " <font color= orange>After encryption: $enc </font>". "<br/>";
+    echo "<font color= orange> After decryption:  $dec </font>". "<br/>";
 }
 // функция для зашифроки
 function encrypted($decrypted, $key)
@@ -82,9 +86,8 @@ function encrypted($decrypted, $key)
     $enc = $aes->encrypt();
     $aes->setData($enc);
     $dec=$aes->decrypt();
-    echo "After encryption: ".$enc."<br/>";
-    echo "After decryption: ".$dec."<br/>";
-   // return $arr_dec = array($decrypted, $key);
+    echo " <font color= #ff8c00>After encryption: $enc </font>". "<br/>";
+    echo "<font color= #ff8c00> After decryption:  $dec </font>". "<br/>";
 }
 ?>
 </body>
